@@ -9,7 +9,11 @@ sudo systemctl stop httpd
 BOOSTRAPPING SCRIPT
 
 #!/bin/bash
+
 yum update -y
 yum install httpd -y
+
+instanceId=$(curl http://44.192.62.2228/latest/meta-data/instance-Id)
+
 systemctl start httpd
 systemctl enable httpd
